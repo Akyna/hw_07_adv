@@ -2,9 +2,11 @@ package com.amboiko;
 
 public class Logger implements Runnable {
     private final Mine mine;
+    private final Manufacturing manufacturing;
 
-    public Logger(Mine mine) {
+    public Logger(Mine mine, Manufacturing manufacturing) {
         this.mine = mine;
+        this.manufacturing = manufacturing;
         new Thread(this).start();
     }
 
@@ -14,6 +16,7 @@ public class Logger implements Runnable {
         while (mine.getGoldQuantity() > Mine.QUANTITY_AT_A_TIME) {
             try {
                 Thread.sleep(1000);
+                manufacturing.getMiners().forEach(Miner::showInfo);
                 System.out.println("REST OF THE GOLD: " + mine.getGoldQuantity());
             } catch (InterruptedException e) {
                 e.printStackTrace();

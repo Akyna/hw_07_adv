@@ -33,4 +33,7 @@ public class Manufacturing {
         }
     }
 
+    public List<Miner> getMiners() {
+        return miners;
+    }
 }
