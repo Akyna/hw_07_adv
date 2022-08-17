@@ -21,7 +21,6 @@ public class Miner implements Runnable {
         while (mine.getGoldQuantity() > Mine.QUANTITY_AT_A_TIME) {
             mine.reduceAmountOfGold();
             goldQuantity += Mine.QUANTITY_AT_A_TIME;
-            showInfo();
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

@@ -13,7 +13,7 @@ public class Main {
         Barrack barrack = new Barrack();
         Mine mine = new Mine(1000);
         Manufacturing manufacturing = new Manufacturing(mine, barrack);
-        new Logger(mine);
+        new Logger(mine, manufacturing);
         manufacturing.startProcess();
     }
 }
